@@ -1,41 +1,134 @@
+const { number } = require("yargs");
+
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(numb1, numb2) {
+ if (numb1 > numb2){
+  return numb1
+ } else if (numb1 < numb2){
+   return numb2
+ } else {
+   return numb1
+ }
+}
 
-
+maxOfTwoNumbers(8, 3)
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(WordArray) {
+ if(!WordArray.length){
+  return null
+ }
 
+ let longestWord = '';
 
+ for(let i = 0 ; i < WordArray.length; i++){
+   if(WordArray[i].length > longestWord.length){
+    longestWord = WordArray[i]
+   }
+ }
+  return longestWord
+}
+
+findLongestWord(words)
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arrayNumber) {
+  if(!arrayNumber.length){
+    return 0
+  }
 
+  let somaNumbers = 0;
 
+  arrayNumber.map(number =>{
+    somaNumbers += number
+  })
+  return somaNumbers
+}
+
+sumNumbers(numbers)
 
 // Iteration #3.1 Bonus:
-function sum() {}
 
+const  mixedArr  =  [ 6 ,  12 ,  'miami' ,  1 ,  true ,  'barca' ,  '200' ,  'lisboa' ,  8 ,  10 ] ;
 
+function sum(arr) {
+  let sum = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === "object") {
+      throw new Error("Unsupported data type sir or ma'am");
+    }
+
+    else if (typeof arr[i] === "string") {
+      sum += arr[i].length;
+    } else {
+      sum += arr[i];
+    }
+  }
+
+  return sum;
+}
+
+sum(mixedArr)
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numberArr) {
+  if(!numberArr.length){
+    return null
+  }
+  
+  return sumNumbers(numberArr) / numberArr.length
+}
+
+averageNumbers(numbersAvg)
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arrOfWords) {
+ if(!arrOfWords.length){
+   return null
+ }
+
+ avgLength = 0;
+
+ for(let i = 0 ; i < arrOfWords.length; i++){
+   avgLength += arrOfWords[i].length
+ }
+ return avgLength / arrOfWords.length
+}
+
+averageWordLength(wordsArr)
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixedArr) {
+ if(!mixedArr.length){
+   return null
+ }
+
+ let sum = 0;
+
+ for (let i = 0; i < mixedArr.length; i++){
+  if(typeof mixedArr[i] === 'string'){
+    sum += mixedArr[i].length;
+  }else {
+    sum += mixedArr[i]
+  }   
+ }
+ const avg = sum / mixedArr.length
+
+ return  parseFloat ( avg . toFixed ( 2 ) ) ;
+}
+
+avg(mixedArr)
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,9 +145,16 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsArr) {
+ if(!wordsArr.length){
+   return null
+ }
 
 
+ 
+}
+
+uniquifyArray(wordsUnique)
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
